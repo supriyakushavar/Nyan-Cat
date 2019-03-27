@@ -20,8 +20,6 @@ img{
 .catImage{
     /* transform-origin: 0% 100%; */
     /* animation: catAnimation 10s linear; */
-    
-    transition: 5s;
 }
 
 @keyframes slide{
