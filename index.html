@@ -56,34 +56,6 @@
                 }
             }, 200)
         }
-
-
-
-        function moveImage(){
-            var nyanCatImage = document.getElementsByClassName('catImage');
-
-            var pos = 0;
-            var id = setInterval(frame, 5);
-            function frame() {
-                if (pos == 350) {
-                    clearInterval(id);
-                } else {
-                    pos++; 
-                    nyanCatImage.style.top = pos + "px"; 
-                    nyanCatImage.style.left = pos + "px"; 
-                }
-            }
-
-            // var number = Math.floor((Math.random() * 360));
-            var topNumber = Math.floor((Math.random() * 100));
-            var leftNumber = Math.floor((Math.random() * 100));
-            cat.style.transform = "rotate(" + number + "deg)";
-            cat.style.top = topNumber + "vh";
-            cat.style.left = leftNumber + "vw";
-            
-        }
-
-        
     </script>
 </body>
 </html>
