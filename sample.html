@@ -27,34 +27,31 @@
                 nyanCatImage.className="catImage";
                 container.appendChild(nyanCatImage);
                 nyanCatImage.style.position = "absolute";
-
-                var topNumber = Math.floor((Math.random() * 200) + 1);
-                var leftNumber = Math.floor((Math.random() * 200) + 1 );
-                var transitionSpeed = Math.floor((Math.random() * 5) + 3);
-                var rotatenumber = Math.floor((Math.random() * 360) + -360);
-
-
-                nyanCatImage.style.transform = "rotate(" + rotatenumber + "deg)";
-                nyanCatImage.style.top = topNumber + "px";
-                nyanCatImage.style.left = leftNumber + "px";
-                nyanCatImage.style.transition = transitionSpeed + "s"; 
+                nyanCatImage.style.top = 0 + "px";
+                nyanCatImage.style.left = 0 + "px";
                 button.style.display="none";
                 document.body.style.backgroundImage="url('bg-container.png')";
                 i++; 
-                if(i<1000){
+                if(i<100){
                     addImages();
-                    setTimeout(function () { 
-                        frame();
-                    }, 1)
+                    var pos = 0;
+                    var id = setInterval(frame, 5);
                 }
                 function frame() {
-                    nyanCatImage.style.top = 100 + "vh";
-                    nyanCatImage.style.left = 100 + "vw";
-
-                    var rotateNumberEnd = Math.floor((Math.random() * 360) + -360);
-                    nyanCatImage.style.transform = "rotate(" + rotateNumberEnd + "deg)";
+                    
+                    if (pos == 350) {
+                    clearInterval(id);
+                    } else {
+                        pos++; 
+                        nyanCatImage.style.top = pos + "px"; 
+                        nyanCatImage.style.left = pos + "px";
+                        nyanCatImage.style.transition = "15s"; 
+                        var number = Math.floor((Math.random() * 360));
+                        nyanCatImage.style.transform = "rotate(" + number + "deg)";
+                    }
                 }
-            }, 200)
+            }, 2000)
+
         }
 
 
@@ -75,11 +72,11 @@
             }
 
             // var number = Math.floor((Math.random() * 360));
-            var topNumber = Math.floor((Math.random() * 100));
-            var leftNumber = Math.floor((Math.random() * 100));
-            cat.style.transform = "rotate(" + number + "deg)";
-            cat.style.top = topNumber + "vh";
-            cat.style.left = leftNumber + "vw";
+            // var topNumber = Math.floor((Math.random() * 100));
+            // var leftNumber = Math.floor((Math.random() * 100));
+            // cat.style.transform = "rotate(" + number + "deg)";
+            // cat.style.top = topNumber + "vh";
+            // cat.style.left = leftNumber + "vw";
             
         }
 
