@@ -1,7 +1,5 @@
 body{
-    background-position: 0 0;
-    animation-name: backgroundAnimation;
-    -webkit-animation: slide 5s linear infinite;
+    
     overflow: hidden;
 }
 
@@ -17,35 +15,9 @@ img{
 }
 
 
-.catImage{
-    /* transform-origin: 0% 100%; */
-    /* animation: catAnimation 10s linear; */
-}
 
-@keyframes slide{
-    0%{
-        background-position: 0 0;
-    }
-    100%{
-        background-position: -100px -100px;
-    }  
-}
 
-/* @keyframes catAnimation{
-    0%{
-        left: 0;
-        top: 0;
-    }
-    50%{
-        transform: rotate(260deg);
-    }
-    100%{
-        left: 90vw;
-        top: 90vh;
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-} */
+
 
 
 

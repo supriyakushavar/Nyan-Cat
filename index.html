@@ -18,36 +18,42 @@
         var container = document.getElementById('container');
         var button = document.getElementById('NyanCat');
         button.addEventListener("click" , move);
-
         function move() {
-        setInterval(addImages, 100);
-        
-        function addImages() {
-                var nyanCatImage = document.createElement('img');
-                nyanCatImage.src="cat.png";
-                nyanCatImage.className="catImage";
-                container.appendChild(nyanCatImage);
-                nyanCatImage.style.position = "absolute";
-                //setting random values
-                var topNumber = Math.floor((Math.random() * -100) + 0);
-                var leftNumber = Math.floor((Math.random() * -100) + 0);
-                var transitionSpeed = Math.floor((Math.random() * 5) + 3);
-                var rotatenumber = Math.floor((Math.random() * 360) + -360);
-                //assigning random values
-                nyanCatImage.style.transform = "rotate(" + rotatenumber + "deg)";
-                nyanCatImage.style.top = topNumber + "px";
-                nyanCatImage.style.left = leftNumber + "px";
-                nyanCatImage.style.transition = transitionSpeed + "s"; 
-                button.style.display="none";
-                document.body.style.backgroundImage="url('bg-container.png')";
-                //function for nycat animation
-                setInterval(frame, 100);
-                function frame() {
-                    nyanCatImage.style.top = 100 + "vh";
-                    nyanCatImage.style.left = 100 + "vw";
-                    var rotateNumberEnd = Math.floor((Math.random() * 360) + -360);
-                    nyanCatImage.style.transform = "rotate(" + rotateNumberEnd + "deg)";
+            button.style.display="none";
+            document.body.style.backgroundImage="url('bg-body.gif')";
+            // var audio = new Audio('https://ia800501.us.archive.org/33/items/nyannyannyan/NyanCatoriginal.mp3');
+            // audio.play();
+            var nyanCatCount = 0;
+            var id = setInterval(addImages, 200);
+            function addImages() {
+                if (nyanCatCount == 100) {
+                    clearInterval(id);
+                } else {
+                    var nyanCatImage = document.createElement('img');
+                    nyanCatImage.src="cat.png";
+                    nyanCatImage.className="catImage";
+                    container.appendChild(nyanCatImage);
+                    nyanCatImage.style.position = "absolute";                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+                    //setting random values
+                    var topNumber = Math.floor((Math.random() * -100) + 0);
+                    var leftNumber = Math.floor((Math.random() * -100) + 0);
+                    var transitionSpeed = Math.floor((Math.random() * 5) + 3);
+                    var rotatenumber = Math.floor((Math.random() * 360) + -360);
+                    //assigning random values
+                    nyanCatImage.style.transform = "rotate(" + rotatenumber + "deg)";
+                    nyanCatImage.style.top = topNumber + "px";
+                    nyanCatImage.style.left = leftNumber + "px";
+                    nyanCatImage.style.transition = transitionSpeed + "s"; 
+                    //function for nycat animation
+                    setInterval(frame, 100);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+                    function frame() {
+                        nyanCatImage.style.top = 100 + "vh";
+                        nyanCatImage.style.left = 100 + "vw";
+                        var rotateNumberEnd = Math.floor((Math.random() * 360) + -360);
+                        nyanCatImage.style.transform = "rotate(" + rotateNumberEnd + "deg)";
+                    }
                 }
+                nyanCatCount++;
             }
         }  
     </script>
