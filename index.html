@@ -19,16 +19,11 @@
         var button = document.getElementById('NyanCat');
         button.addEventListener("click" , move);
         function move() {
-            button.style.display="none";
-            document.body.style.backgroundImage="url('bg-body.gif')";
-            // var audio = new Audio('https://ia800501.us.archive.org/33/items/nyannyannyan/NyanCatoriginal.mp3');
-            // audio.play();
-            var nyanCatCount = 0;
-            var id = setInterval(addImages, 200);
+            var id = setInterval(addImages, 300);
+            //Nyan Cat rain function
             function addImages() {
-                if (nyanCatCount == 100) {
-                    clearInterval(id);
-                } else {
+                    button.style.display="none";
+                    document.body.style.backgroundImage="url('bg-body.gif')";
                     var nyanCatImage = document.createElement('img');
                     nyanCatImage.src="cat.png";
                     nyanCatImage.className="catImage";
@@ -52,8 +47,13 @@
                         var rotateNumberEnd = Math.floor((Math.random() * 360) + -360);
                         nyanCatImage.style.transform = "rotate(" + rotateNumberEnd + "deg)";
                     }
-                }
-                nyanCatCount++;
+                    var audio = new Audio('https://ia800501.us.archive.org/33/items/nyannyannyan/NyanCatoriginal.mp3');
+                    audio.play();
+            }
+            //stop nyan cat rain after 10s
+            setTimeout(stopfunction,10000);
+            function stopfunction(){
+                clearInterval(id);
             }
         }  
     </script>
