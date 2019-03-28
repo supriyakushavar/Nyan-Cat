@@ -17,70 +17,38 @@
     <script>
         var container = document.getElementById('container');
         var button = document.getElementById('NyanCat');
-        var i=0;
-        button.addEventListener("click" , addImages);
-        
-        function addImages(){
-            setTimeout(function () { 
+        button.addEventListener("click" , move);
+
+        function move() {
+        setInterval(addImages, 100);
+        function addImages() {
                 var nyanCatImage = document.createElement('img');
                 nyanCatImage.src="cat.png";
                 nyanCatImage.className="catImage";
                 container.appendChild(nyanCatImage);
                 nyanCatImage.style.position = "absolute";
-                nyanCatImage.style.top = 0 + "px";
-                nyanCatImage.style.left = 0 + "px";
+                //setting random values
+                var topNumber = Math.floor((Math.random() * -100) + 0);
+                var leftNumber = Math.floor((Math.random() * -100) + 0);
+                var transitionSpeed = Math.floor((Math.random() * 5) + 3);
+                var rotatenumber = Math.floor((Math.random() * 360) + -360);
+                //assigning random values
+                nyanCatImage.style.transform = "rotate(" + rotatenumber + "deg)";
+                nyanCatImage.style.top = topNumber + "px";
+                nyanCatImage.style.left = leftNumber + "px";
+                nyanCatImage.style.transition = transitionSpeed + "s"; 
                 button.style.display="none";
                 document.body.style.backgroundImage="url('bg-container.png')";
-                i++; 
-                if(i<100){
-                    addImages();
-                    var pos = 0;
-                    var id = setInterval(frame, 5);
-                }
+                //function for nycat animation
+                setInterval(frame, 100);
                 function frame() {
-                    
-                    if (pos == 350) {
-                    clearInterval(id);
-                    } else {
-                        pos++; 
-                        nyanCatImage.style.top = pos + "px"; 
-                        nyanCatImage.style.left = pos + "px";
-                        nyanCatImage.style.transition = "15s"; 
-                        var number = Math.floor((Math.random() * 360));
-                        nyanCatImage.style.transform = "rotate(" + number + "deg)";
-                    }
-                }
-            }, 2000)
-
-        }
-
-
-
-        function moveImage(){
-            var nyanCatImage = document.getElementsByClassName('catImage');
-
-            var pos = 0;
-            var id = setInterval(frame, 5);
-            function frame() {
-                if (pos == 350) {
-                    clearInterval(id);
-                } else {
-                    pos++; 
-                    nyanCatImage.style.top = pos + "px"; 
-                    nyanCatImage.style.left = pos + "px"; 
+                    nyanCatImage.style.top = 100 + "vh";
+                    nyanCatImage.style.left = 100 + "vw";
+                    var rotateNumberEnd = Math.floor((Math.random() * 360) + -360);
+                    nyanCatImage.style.transform = "rotate(" + rotateNumberEnd + "deg)";
                 }
             }
-
-            // var number = Math.floor((Math.random() * 360));
-            // var topNumber = Math.floor((Math.random() * 100));
-            // var leftNumber = Math.floor((Math.random() * 100));
-            // cat.style.transform = "rotate(" + number + "deg)";
-            // cat.style.top = topNumber + "vh";
-            // cat.style.left = leftNumber + "vw";
-            
-        }
-
-        
+        }  
     </script>
 </body>
 </html>

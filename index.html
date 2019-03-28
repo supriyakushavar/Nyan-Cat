@@ -17,45 +17,39 @@
     <script>
         var container = document.getElementById('container');
         var button = document.getElementById('NyanCat');
-        var i=0;
-        button.addEventListener("click" , addImages);
+        button.addEventListener("click" , move);
+
+        function move() {
+        setInterval(addImages, 100);
         
-        function addImages(){
-            setTimeout(function () { 
+        function addImages() {
                 var nyanCatImage = document.createElement('img');
                 nyanCatImage.src="cat.png";
                 nyanCatImage.className="catImage";
                 container.appendChild(nyanCatImage);
                 nyanCatImage.style.position = "absolute";
-
-                var topNumber = Math.floor((Math.random() * 200) + 1);
-                var leftNumber = Math.floor((Math.random() * 200) + 1 );
+                //setting random values
+                var topNumber = Math.floor((Math.random() * -100) + 0);
+                var leftNumber = Math.floor((Math.random() * -100) + 0);
                 var transitionSpeed = Math.floor((Math.random() * 5) + 3);
                 var rotatenumber = Math.floor((Math.random() * 360) + -360);
-
-
+                //assigning random values
                 nyanCatImage.style.transform = "rotate(" + rotatenumber + "deg)";
                 nyanCatImage.style.top = topNumber + "px";
                 nyanCatImage.style.left = leftNumber + "px";
                 nyanCatImage.style.transition = transitionSpeed + "s"; 
                 button.style.display="none";
                 document.body.style.backgroundImage="url('bg-container.png')";
-                i++; 
-                if(i<1000){
-                    addImages();
-                    setTimeout(function () { 
-                        frame();
-                    }, 1)
-                }
+                //function for nycat animation
+                setInterval(frame, 100);
                 function frame() {
                     nyanCatImage.style.top = 100 + "vh";
                     nyanCatImage.style.left = 100 + "vw";
-
                     var rotateNumberEnd = Math.floor((Math.random() * 360) + -360);
                     nyanCatImage.style.transform = "rotate(" + rotateNumberEnd + "deg)";
                 }
-            }, 200)
-        }
+            }
+        }  
     </script>
 </body>
 </html>
